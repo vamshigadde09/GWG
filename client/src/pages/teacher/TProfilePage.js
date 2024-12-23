@@ -207,11 +207,12 @@ const TProfilePage = () => {
     onSuccess: (data) => {
       setFormData({
         ...data,
-        skills: data.skills || [], // Default to an empty array
-        availability: data.availability || [], // Default to an empty array
-        otherProfessionalLinks: data.otherProfessionalLinks || [], // Default to an empty array
+        skills: data.skills || [],
+        availability: data.availability || [],
+        otherProfessionalLinks: data.otherProfessionalLinks || [],
         profilePicture:
-          data.profilePicture || process.env.REACT_APP_DEFAULT_PROFILE_PICTURE, // Default profile picture
+          data.profilePicture ||
+          "D:Projects_GWGGROW-WITH-GURU-main - CopyGROW-WITH-GURU-mainimgprofile-user-icon-isolated-on-white-background-eps10-free-vector.jpg",
       });
     },
     onError: (err) => {
@@ -313,7 +314,7 @@ const TProfilePage = () => {
             <img
               src={
                 formData.profilePicture ||
-                process.env.REACT_APP_DEFAULT_PROFILE_PICTURE
+                "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1734939015~exp=1734942615~hmac=2dee67c81aa2b33d156f9a807df4063730be34921d2890ce85468ed39dc1dbde&w=740"
               }
               alt="Profile Preview"
               className="profile-picture"

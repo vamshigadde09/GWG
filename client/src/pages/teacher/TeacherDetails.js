@@ -64,7 +64,8 @@ const TeacherDetails = () => {
   if (!teacher) return <div>Loading...</div>;
 
   const profilePicture =
-    teacher.profilePicture || process.env.REACT_APP_DEFAULT_PROFILE_PICTURE;
+    teacher.profilePicture ||
+    "D:Projects_GWGGROW-WITH-GURU-main - CopyGROW-WITH-GURU-mainimgprofile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
 
   return (
     <div>
