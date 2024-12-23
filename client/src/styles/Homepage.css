@@ -1,0 +1,149 @@
+/* Homepage.css */
+
+/* Body styling */
+body {
+    background-color: #dae1e2; /* Light gray background */
+    font-family: Arial, sans-serif; /* Font family */
+}
+
+/* Header styling */
+.header {
+    padding: 10px 0; /* Padding top and bottom */
+    background-color: #003366dc;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex; /* Flexbox layout */
+    justify-content: flex-end ; /* Align items to the right, overriding other rules */
+    flex-basis: auto;
+    align-items: center; /* Center items vertically */
+    list-style-type: none; /* Remove default list styling */
+}
+
+/* Navbar link styling */
+.nav-link {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Font size */
+    margin: 0 10px; /* Margin around links */
+    padding: 5px 10px; /* Padding inside links */
+}
+
+/* Hover effect for navbar links */
+.nav-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Button styling for navbar links */
+.nav-link.btn {
+    background-color: #dae1e2; /* Light gray background */
+    color: black; /* Text color */
+    padding: 5px 10px; /* Padding inside buttons */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid black; /* Black border */
+    margin-left: 20px; /* Additional left margin */
+}
+
+/* Hover effect for buttons */
+.nav-link.btn:hover {
+    background-color: white; /* White background on hover */
+}
+
+.body-box {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+  }
+
+/* Container styling */
+.homepage-container {
+    font-family: Arial, sans-serif;
+    margin: 0 auto; /* Centered margin */
+    max-width: auto; /* Maximum width */
+}
+
+/* Styling for various sections */
+.intro-section,
+.why-mock-interviews-matter,
+.features-section,
+.testimonials-section,
+.faq-section {
+    padding: 20px; /* Padding inside sections */
+    margin: 20px auto; /* Centered margin */
+    max-width: 1300px; /* Maximum width */
+    background-color: white; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+/* Styling for headings */
+h1, h2 {
+    color: #003366; /* Dark blue headings */
+    font-size: 30px;
+
+}
+
+/* Styling for text */
+p,
+li,
+dt,
+dd,
+blockquote {
+    color: black; /* Black text */
+    font-size: 20px;
+}
+
+/* Styling for blockquotes */
+blockquote {
+    font-style: italic; /* Italic text */
+    margin: 10px 0; /* Margin top and bottom */
+}
+
+/* Footer styling */
+.footer {
+    background-color: #003366; /* Dark blue footer */
+    color: white; /* Text color */
+    padding: 20px 0; /* Padding top and bottom */
+}
+
+/* Container for footer content */
+.footer-container {
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Evenly spaced items */
+    max-width: 800px; /* Maximum width */
+    margin: auto; /* Centered margin */
+}
+
+/* Styling for footer content headings */
+.footer-content h3 {
+    margin-bottom: 10px; /* Bottom margin */
+}
+
+/* Styling for footer content text and lists */
+.footer-content p,
+.footer-content ul {
+    margin: 0; /* No margin */
+}
+
+/* Styling for footer content lists */
+.footer-content ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* No padding */
+}
+
+/* Styling for footer content list items */
+.footer-content li {
+    margin: 5px 0; /* Margin top and bottom */
+}
+
+/* Styling for footer content links */
+.footer-content a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Hover effect for footer content links */
+.footer-content a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

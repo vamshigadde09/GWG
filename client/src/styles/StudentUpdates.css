@@ -1,0 +1,172 @@
+
+
+
+
+
+/* Card container styling */
+.update-card {
+  background: linear-gradient(145deg, #ffffff, #f7f7f7);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 1200px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid #007bff;
+  cursor: pointer;
+}
+
+/* Hover effect for the card */
+.update-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Header styling */
+.update-header {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e3e3e3;
+  padding-bottom: 8px;
+}
+
+/* Content container for side-by-side layout */
+.update-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+/* Paragraph styling for content */
+.update-content p {
+  flex: 1 1 48%;
+  margin: 8px 0;
+  font-size: 1em;
+  color: #333;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+/* Label styling */
+.update-content strong {
+  color: #0056b3;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Status badge styling */
+.status {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Status colors */
+.status.pending {
+  background-color: #ffc107;
+}
+
+.status.approved {
+  background-color: #28a745;
+}
+
+.status.rejected {
+  background-color: #dc3545;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .update-content {
+      flex-direction: column;
+  }
+
+  .update-content p {
+      flex: 1 1 100%;
+  }
+}
+
+/* Filter buttons styling */
+.filter-buttons {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  font-size: 1em;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.filter-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+
+
+.teacher-details {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.teacher-details p {
+  margin: 5px 0;
+  font-size: 0.95em;
+}
+
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.tab-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.applications-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.application-item {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}

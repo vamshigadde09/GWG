@@ -1,0 +1,13 @@
+teacher login details
+
+  "email":      
+   "password":    
+
+  
+teacher2updated@example.com
+password123
+
+
+ D:\Projects_GWG\GROW-WITH-GURU-main\GROW-WITH-GURU-main\client\src\pages\student\MyApplications.js
+
+

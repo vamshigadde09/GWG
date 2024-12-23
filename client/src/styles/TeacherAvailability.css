@@ -1,0 +1,145 @@
+/* Table styles */
+.availability-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.availability-table th,
+.availability-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.availability-table th {
+  background-color: #ffcccc; /* Light pink for headers */
+  font-weight: bold;
+  color: #333;
+}
+
+.availability-table td:first-child {
+  background-color: #ffcccc; /* Light pink for day/hour column */
+  font-weight: bold;
+  color: black;
+}
+
+.availability-table th:first-child {
+  background-color: #ffe6e6; /* Lighter pink for "Hour/Day Order" header */
+  font-weight: bold;
+}
+
+/* Lab Slot styling (P# or P#/X) */
+.slot-cell.green-slot {
+  background-color: #90ee90; /* Light green for P1 to P45 */
+  color: black;
+  border: 1px solid #006400; /* Dark green border */
+}
+
+/* Theory Slot styling (A to F) */
+.slot-cell.yellow-slot {
+  background-color: #ffffcc; /* Light yellow for A to F */
+  color: black;
+  border: 1px solid #ffd700; /* Dark yellow border */
+}
+
+/* Blue Slot styling (L11 to L52) */
+.slot-cell.blue-slot {
+  background-color: #add8e6; /* Light blue for L11 to L52 */
+  color: black;
+  border: 1px solid #0000ff; /* Dark blue border */
+}
+
+/* Free Slot styling (dynamically updated) */
+.slot-cell.free-slot {
+  background-color: #4caf50; /* Green for free slots */
+  color: white;
+  border: 1px solid #3e8e41;
+}
+
+/* Hover effects */
+.slot-cell:hover {
+  background-color: #ffc107; /* Yellow on hover */
+  color: black;
+  cursor: pointer;
+}
+
+/* Table hover effects */
+.availability-table tbody tr:hover {
+  background-color: #f5f5f5; /* Subtle highlight for the row */
+}
+
+/* Button styling */
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #00509e;
+  transform: scale(1.05);
+  color: white;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* General layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.table-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  overflow-x: auto; /* Allow horizontal scrolling on small screens */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .availability-table {
+      font-size: 12px;
+  }
+
+  button {
+      font-size: 14px;
+      padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .availability-table {
+      font-size: 10px;
+  }
+
+  button {
+      font-size: 12px;
+      padding: 8px 16px;
+  }
+}
+
+/* Highlight header for Hour/Day Order */
+.hour-day-header {
+  background-color: #ffe6b3; /* Light beige */
+  font-weight: bold;
+  color: #333;
+}

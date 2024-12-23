@@ -1,0 +1,178 @@
+.profile-details {
+  background-color: #ffffff;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-details h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 40px;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.profile-row label {
+  font-weight: bold;
+  color: #333333;
+  width: 30%;
+  font-size: 1em;
+}
+
+.profile-row input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 65%;
+  box-sizing: border-box;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.profile-row input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 4px rgba(0, 86, 179, 0.4);
+  outline: none;
+}
+
+.profile-btn {
+  background-color: #003366;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+}
+
+.profile-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-top: 40px;
+}
+
+.projects-section h3 {
+  color: #003366;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.project-row {
+  background-color: #f9f9f9;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Project Title Styling */
+.project-row .project-title {
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.project-row input.project-title-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1em;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.project-row input.project-title-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 4px rgba(0, 86, 179, 0.4);
+  outline: none;
+}
+
+/* Project Description Styling */
+.project-row .project-description {
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.project-row textarea.project-description-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1em;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  resize: none;
+  height: 100px;
+}
+
+.project-row textarea.project-description-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 4px rgba(0, 86, 179, 0.4);
+  outline: none;
+}
+
+/* Add Project Button */
+.add-project-btn {
+  background-color: #0056b3;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-project-btn:hover {
+  background-color: #003366;
+}
+
+@media (max-width: 768px) {
+  .project-row input,
+  .project-row textarea {
+    width: 100%;
+  }
+}
+

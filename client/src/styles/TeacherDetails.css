@@ -1,0 +1,153 @@
+.teacher-details-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.teacher-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+  border: 2px solid #007bff;
+}
+
+.teacher-profile-info h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.teacher-profile-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.skills-section {
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section h3 {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.skill-item {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.details-section {
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details-section p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.details-section p strong {
+  color: #007bff;
+}
+
+.details-section a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.details-section a:hover {
+  text-decoration: underline;
+}
+
+.timetable-section {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.availability-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.availability-table th,
+.availability-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.availability-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.availability-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.availability-table tr:hover {
+  background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .teacher-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .teacher-profile-img {
+    margin-bottom: 15px;
+  }
+
+  .skills-section,
+  .details-section,
+  .timetable-section {
+    padding: 10px;
+  }
+
+  .availability-table th,
+  .availability-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
