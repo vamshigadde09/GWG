@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import StudentHeader from "../Header/StudentHeader";
 import Footer from "../Footer/Footer";
 import "../../styles/StudentUpdates.css";
 
 const MyApplications = () => {
-  const navigate = useNavigate();
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

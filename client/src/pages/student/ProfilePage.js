@@ -37,13 +37,9 @@ const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
 
-  const { data, isLoading, error } = useQuery(
-    "studentProfile",
-    fetchStudentData,
-    {
-      onSuccess: (data) => setFormData(data),
-    }
-  );
+  const { isLoading, error } = useQuery("studentProfile", fetchStudentData, {
+    onSuccess: (profileData) => setFormData(profileData),
+  });
 
   const mutation = useMutation(updateStudentData, {
     onSuccess: () => {

@@ -1,12 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "../../styles/teacherPortal.css";
 import Footer from "../Footer/Footer";
 import TeacherHeader from "../Header/TeacherHeader";
 
 const TeacherPortal = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="growwithguru-container">
       <TeacherHeader />

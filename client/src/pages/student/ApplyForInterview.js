@@ -11,7 +11,6 @@ const ApplyForInterview = () => {
   const navigate = useNavigate();
   const [teachers, setTeachers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedSkill, setSelectedSkill] = useState(null);
   const [selectedTeachers, setSelectedTeachers] = useState([]);
 
   const [formData, setFormData] = useState({
@@ -115,7 +114,7 @@ const ApplyForInterview = () => {
     const value = event.target.value;
     setSearchTerm(value);
     if (value.trim()) {
-      fetchTeachers(value, selectedSkill ? selectedSkill.value : "");
+      fetchTeachers(value);
     } else {
       setTeachers([]); // Clear suggestions if no input
     }

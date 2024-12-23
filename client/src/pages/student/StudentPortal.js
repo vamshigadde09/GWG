@@ -205,7 +205,7 @@ const StudentPortal = () => {
                   </div>
                   <div style={{ display: "flex", gap: "10px" }}>
                     <a
-                      href="#"
+                      href={`/teacher/${teacher._id}`}
                       className="see-more-link"
                       onClick={() => navigate(`/teacher/${teacher._id}`)}
                       style={{

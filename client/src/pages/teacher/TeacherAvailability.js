@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import "../../styles/TeacherAvailability.css";
 import Footer from "../Footer/Footer";
@@ -24,82 +24,84 @@ const TeacherAvailability = () => {
     "05:30 - 06:10",
   ];
 
-  const predefinedSlots = {
-    "Day 1": [
-      "P1",
-      "P2/X",
-      "P3/X",
-      "P4",
-      "P5",
-      "A",
-      "A",
-      "F",
-      "F",
-      "G",
-      "L11",
-      "L12",
-    ],
-    "Day 2": [
-      "B",
-      "B/X",
-      "G/X",
-      "G",
-      "A",
-      "P16",
-      "P17",
-      "P18",
-      "P19",
-      "P20",
-      "L21",
-      "L22",
-    ],
-    "Day 3": [
-      "P21",
-      "P22/X",
-      "P23/X",
-      "P24",
-      "P25",
-      "C",
-      "C",
-      "A",
-      "D",
-      "B",
-      "L31",
-      "L32",
-    ],
-    "Day 4": [
-      "D",
-      "D/X",
-      "B/X",
-      "E",
-      "C",
-      "P36",
-      "P37",
-      "P38",
-      "P39",
-      "P40",
-      "L41",
-      "L42",
-    ],
-    "Day 5": [
-      "P41",
-      "P42/X",
-      "P43/X",
-      "P44",
-      "P45",
-      "E",
-      "E",
-      "C",
-      "F",
-      "D",
-      "L51",
-      "L52",
-    ],
-  };
+  const predefinedSlots = useMemo(
+    () => ({
+      "Day 1": [
+        "P1",
+        "P2/X",
+        "P3/X",
+        "P4",
+        "P5",
+        "A",
+        "A",
+        "F",
+        "F",
+        "G",
+        "L11",
+        "L12",
+      ],
+      "Day 2": [
+        "B",
+        "B/X",
+        "G/X",
+        "G",
+        "A",
+        "P16",
+        "P17",
+        "P18",
+        "P19",
+        "P20",
+        "L21",
+        "L22",
+      ],
+      "Day 3": [
+        "P21",
+        "P22/X",
+        "P23/X",
+        "P24",
+        "P25",
+        "C",
+        "C",
+        "A",
+        "D",
+        "B",
+        "L31",
+        "L32",
+      ],
+      "Day 4": [
+        "D",
+        "D/X",
+        "B/X",
+        "E",
+        "C",
+        "P36",
+        "P37",
+        "P38",
+        "P39",
+        "P40",
+        "L41",
+        "L42",
+      ],
+      "Day 5": [
+        "P41",
+        "P42/X",
+        "P43/X",
+        "P44",
+        "P45",
+        "E",
+        "E",
+        "C",
+        "F",
+        "D",
+        "L51",
+        "L52",
+      ],
+    }),
+    []
+  );
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-
     if (!token) {
       alert("You are not logged in. Please log in and try again.");
       return;
@@ -127,8 +129,7 @@ const TeacherAvailability = () => {
         setAvailability(updatedAvailability);
       })
       .catch((err) => console.error("Error fetching availability:", err));
-  }, []);
-
+  }, [predefinedSlots]);
   const toggleSlot = (day, index) => {
     if (!isEditing) return;
 

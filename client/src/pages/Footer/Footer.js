@@ -14,13 +14,13 @@ const Footer = () => {
             <h3>Follow Us</h3>
             <ul className="social-links">
               <li>
-                <a href="#">Facebook</a>
+                <a href="/login">Facebook</a>
               </li>
               <li>
-                <a href="#">Twitter</a>
+                <a href="/login">Twitter</a>
               </li>
               <li>
-                <a href="#">Instagram</a>
+                <a href="/login">Instagram</a>
               </li>
             </ul>
           </div>

@@ -7,12 +7,15 @@ const HomePage = () => {
   // login user data
   const getUserData = async () => {
     try {
-      const res = await axios.post(
+      const token = localStorage.getItem("token"); // Get token from localStorage
+      if (!token) throw new Error("Token not found");
+
+      await axios.post(
         "/api/v1/user/getUserData",
         {},
         {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
+            Authorization: `Bearer ${token}`, // Correctly reference the token here
           },
         }
       );
@@ -35,7 +38,7 @@ const HomePage = () => {
           <a href="/" className="nav-link">
             Home
           </a>
-          <a href="#" className="nav-link">
+          <a href="/" className="nav-link">
             About Us
           </a>
           <a href="/Login" className="nav-link btn">
