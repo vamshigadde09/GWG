@@ -180,36 +180,17 @@ const ApplyForInterview = () => {
       return;
     }
 
-    // Determine the value of `noteacher`
     const noteacher = selectedTeachers.length === 0;
 
-    // Show alert if no teacher is selected
-    if (noteacher) {
-      alert(
-        "No teacher selected. Your request will be submitted without assigning a teacher."
-      );
-    }
-
-    // Log the payload for debugging
-    console.log("Payload sent to API:", {
-      ...formData,
-      teacher: selectedTeachers.map((teacher) => ({
-        teacherId: teacher._id, // Ensure the teacher is in the correct format with teacherId
-      })),
-      noteacher,
-      applicationNumber: Date.now(),
-    });
-
-    // Then send the correct structure in the POST request
     try {
       const response = await axios.post(
         "http://localhost:8080/api/v1/interview/create",
         {
           ...formData,
           teacher: selectedTeachers.map((teacher) => ({
-            teacherId: teacher._id, // Correct the teacher field structure
+            teacherId: teacher._id, // Ensure the teacher is in the correct format with teacherId
           })),
-          noteacher, // Pass the noteacher variable
+          noteacher,
           applicationNumber: Date.now(),
         },
         {
@@ -232,7 +213,6 @@ const ApplyForInterview = () => {
       alert("An error occurred. Please check your inputs or try again later.");
     }
   };
-
   if (loading) return <div>Loading...</div>;
 
   return (

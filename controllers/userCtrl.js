@@ -100,9 +100,6 @@ const authController = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   try {
-    console.log("Request Body:", req.body);
-    console.log("User ID:", req.user?.id);
-
     const {
       name,
       phone,
@@ -224,8 +221,6 @@ const updateTeacherProfile = async (req, res) => {
       linkedIn, // Update LinkedIn field
       otherProfessionalLinks, // Update otherProfessionalLinks field
     } = req.body;
-
-    console.log("Updating profile for user:", req.user.id);
 
     // Update the User model
     const updatedUser = await userModel.findByIdAndUpdate(

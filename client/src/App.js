@@ -20,6 +20,7 @@ import StudentPortal from "./pages/student/StudentPortal";
 import TeacherDetails from "./pages/teacher/TeacherDetails";
 import MyApplications from "./pages/student/MyApplications";
 import TeacherAvailability from "./pages/teacher/TeacherAvailability";
+import Feedback from "./pages/teacher/feedback";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -69,6 +70,8 @@ function App() {
           <Route path="/TProfilePage/*" element={<TProfilePage />} />
 
           <Route path="/teacher/:id" element={<TeacherDetails />} />
+
+          <Route path="/Feedback/*" element={<Feedback />} />
 
           <Route
             path="/TeacherAvailability"

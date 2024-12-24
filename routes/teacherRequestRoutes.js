@@ -5,6 +5,8 @@ const {
   updateTeacherAvailability,
   getTeacherAvailability,
   getTeacherDetails,
+  feedback,
+  attendance,
 } = require("../controllers/teacherRequestCtrl");
 
 const authMiddleware = require("../middlewares/authMiddleware");
@@ -24,5 +26,7 @@ router.put("/availability", authMiddleware, updateTeacherAvailability);
 router.get("/availability", authMiddleware, getTeacherAvailability);
 
 router.get("/teacher/:id", authMiddleware, getTeacherDetails);
+router.post("/feedback", authMiddleware, feedback);
+router.put("/attendance", authMiddleware, attendance);
 
 module.exports = router;

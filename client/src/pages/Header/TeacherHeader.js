@@ -22,12 +22,13 @@ const TeacherHeader = () => {
           <a href="/TeacherNotifications" className="nav-link">
             notifications
           </a>
+          <a href="/Feedback" className="nav-link">
+            Feedback
+          </a>
           <a href="/TeacherAvailability" className="nav-link">
             My Schedule
           </a>
-          <a href="/TProfilePage" className="nav-link">
-            Feedback
-          </a>
+
           <a href="/TProfilePage" className="nav-link">
             Profile
           </a>

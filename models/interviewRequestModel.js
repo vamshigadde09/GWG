@@ -35,6 +35,16 @@ const interviewRequestSchema = new mongoose.Schema(
       enum: ["Pending", "Accepted", "Rejected", "Completed"],
       default: "Pending",
     },
+    attendance: {
+      type: String,
+      enum: ["Present", "Absent"],
+      default: "Absent",
+    },
+    feedback: {
+      type: String,
+      default: "",
+    },
+
     teacher: [
       {
         teacherId: {
@@ -52,6 +62,8 @@ const interviewRequestSchema = new mongoose.Schema(
       required: true,
     },
     noteacher: { type: Boolean, default: false },
+    finalfeedback: { type: Boolean, default: false },
+
     applicationNumber: { type: Number, unique: true, required: true },
   },
 

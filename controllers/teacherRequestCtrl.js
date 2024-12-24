@@ -11,11 +11,12 @@ const getTeacherNotifications = async (req, res) => {
       return res.status(404).json({ message: "Teacher profile not found" });
     }
 
-    // Ensure `teacherId` is included in each notification
     const notifications = teacher.notifications.map((notification) => ({
       ...notification.toObject(),
       teacherId: teacher._id, // Attach the teacher's ID to each notification
     }));
+
+    console.log("Notifications Response to Frontend:", notifications);
 
     res.status(200).json({ notifications });
   } catch (error) {
@@ -29,16 +30,6 @@ const updateNotificationStatus = async (req, res) => {
   const { applicationNumber } = req.params;
   const { status, reason } = req.body;
 
-  if (!applicationNumber) {
-    console.error("Missing applicationNumber in request params.");
-    return res.status(400).send("Missing applicationNumber in request params.");
-  }
-
-  if (!status) {
-    console.error("Missing status in request body.");
-    return res.status(400).send("Missing status in request body.");
-  }
-
   try {
     const updatedRequest = await InterviewRequest.findOneAndUpdate(
       { applicationNumber: Number(applicationNumber) },
@@ -47,18 +38,15 @@ const updateNotificationStatus = async (req, res) => {
     );
 
     if (!updatedRequest) {
-      console.error(
-        `Application not found for applicationNumber: ${applicationNumber}`
-      );
       return res.status(404).json({ message: "Application not found." });
     }
 
     res.status(200).json({
       success: true,
+      message: "Status updated successfully.",
       data: updatedRequest,
     });
   } catch (error) {
-    console.error("Error updating notification status:", error.message);
     res.status(500).json({ message: "Server error: " + error.message });
   }
 };
@@ -134,10 +122,46 @@ const getTeacherDetails = async (req, res) => {
   }
 };
 
+const attendance = async (req, res) => {
+  const { applicationNumber, attendance } = req.body;
+  if (!applicationNumber || !attendance) {
+    return res.status(400).send("Missing applicationNumber or attendance.");
+  }
+  try {
+    const interview = await InterviewRequest.findOneAndUpdate(
+      { applicationNumber },
+      { attendance },
+      { new: true }
+    );
+    res.status(200).json({ message: "Attendance updated.", data: interview });
+  } catch (error) {
+    res.status(500).json({ message: "Server error: " + error.message });
+  }
+};
+
+const feedback = async (req, res) => {
+  const { applicationNumber, feedback } = req.body;
+  if (!applicationNumber || !feedback) {
+    return res.status(400).send("Missing applicationNumber or feedback.");
+  }
+  try {
+    const interview = await InterviewRequest.findOneAndUpdate(
+      { applicationNumber },
+      { feedback },
+      { new: true }
+    );
+    res.status(200).json({ message: "Feedback submitted.", data: interview });
+  } catch (error) {
+    res.status(500).json({ message: "Server error: " + error.message });
+  }
+};
+
 module.exports = {
   getTeacherNotifications,
   updateNotificationStatus,
   updateTeacherAvailability,
   getTeacherAvailability,
   getTeacherDetails,
+  feedback,
+  attendance,
 };

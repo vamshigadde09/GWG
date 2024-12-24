@@ -90,31 +90,10 @@ const createInterviewRequest = async (req, res) => {
   }
 };
 
-const getStudentInterviewRequests = async (req, res) => {
-  try {
-    const applications = await InterviewRequest.find({ studentId: req.user.id })
-      .populate({
-        path: "teacher.teacherId",
-        select: "name designation skills",
-      })
-      .exec();
-
-    res.status(200).json({
-      message: "Applications fetched successfully",
-      success: true,
-      data: applications,
-    });
-  } catch (error) {
-    res.status(500).json({ message: `Server error: ${error.message}` });
-  }
-};
-
 const notifySelectedTeachers = async (teacherObjects, applicationDetails) => {
   try {
-    // Extract teacher IDs from the teacher objects
     const teacherIds = teacherObjects.map((teacher) => teacher.teacherId);
 
-    // Fetch the teachers using their IDs
     const teachers = await TeacherProfile.find({ _id: { $in: teacherIds } });
 
     if (teachers.length === 0) {
@@ -122,7 +101,6 @@ const notifySelectedTeachers = async (teacherObjects, applicationDetails) => {
       return;
     }
 
-    // Add notifications to each teacher
     await Promise.all(
       teachers.map(async (teacher) => {
         teacher.notifications.push({
@@ -147,6 +125,25 @@ const notifySelectedTeachers = async (teacherObjects, applicationDetails) => {
     );
   } catch (error) {
     console.error("Error notifying teachers:", error.message);
+  }
+};
+
+const getStudentInterviewRequests = async (req, res) => {
+  try {
+    const applications = await InterviewRequest.find({ studentId: req.user.id })
+      .populate({
+        path: "teacher.teacherId",
+        select: "name designation skills",
+      })
+      .exec();
+
+    res.status(200).json({
+      message: "Applications fetched successfully",
+      success: true,
+      data: applications,
+    });
+  } catch (error) {
+    res.status(500).json({ message: `Server error: ${error.message}` });
   }
 };
 
@@ -223,9 +220,52 @@ const rejectInterviewRequest = async (req, res) => {
   }
 };
 
+const getAcceptedRequests = async (req, res) => {
+  try {
+    const acceptedRequests = await InterviewRequest.find({
+      status: "Accepted",
+    });
+    res.status(200).json({ success: true, data: acceptedRequests });
+  } catch (error) {
+    console.error("Error fetching accepted requests:", error.message);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const updateAttendance = async (req, res) => {
+  const { applicationNumber, attendance } = req.body;
+  try {
+    const interview = await InterviewRequest.findOneAndUpdate(
+      { applicationNumber },
+      { attendance },
+      { new: true }
+    );
+    res.status(200).json({ message: "Attendance updated.", data: interview });
+  } catch (error) {
+    res.status(500).json({ message: "Server error: " + error.message });
+  }
+};
+
+const submitFeedback = async (req, res) => {
+  const { applicationNumber, feedback } = req.body;
+  try {
+    const interview = await InterviewRequest.findOneAndUpdate(
+      { applicationNumber },
+      { feedback },
+      { new: true }
+    );
+    res.status(200).json({ message: "Feedback submitted.", data: interview });
+  } catch (error) {
+    res.status(500).json({ message: "Server error: " + error.message });
+  }
+};
+
 module.exports = {
   createInterviewRequest,
   getStudentInterviewRequests,
   notifySelectedTeachers,
   rejectInterviewRequest,
+  getAcceptedRequests,
+  submitFeedback,
+  updateAttendance,
 };

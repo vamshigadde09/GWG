@@ -68,6 +68,11 @@ const teacherProfile = new mongoose.Schema(
     otherProfessionalLinks: [{ type: String, default: "" }],
     isteacherProfileUpdated: { type: Boolean, default: false },
 
+    feedback: {
+      type: String,
+      default: "",
+    },
+
     notifications: [
       {
         type: { type: String, required: true },

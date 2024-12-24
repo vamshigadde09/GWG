@@ -10,7 +10,7 @@ const TeacherNotifications = () => {
   const [notifications, setNotifications] = useState([]);
   const [rejectionReasons, setRejectionReasons] = useState({});
   const [editingNotificationId, setEditingNotificationId] = useState(null);
-  const [activeTab, setActiveTab] = useState("Pending"); // Default tab
+  const [activeTab, setActiveTab] = useState("Pending");
 
   // Fetch teacher notifications
   const fetchNotifications = async () => {
@@ -23,26 +23,41 @@ const TeacherNotifications = () => {
         }
       );
 
-      setNotifications(response.data.notifications);
+      console.log(
+        "Fetched Notifications from API:",
+        response.data.notifications
+      );
+      setNotifications(response.data.notifications || []);
     } catch (error) {
       console.error("Error fetching notifications:", error.message);
       alert("Failed to load notifications.");
     }
   };
 
+  // Handle accept action
+  const handleAccept = async (applicationNumber) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.put(
+        `${BASE_URL}/api/v1/teacher/notifications/${applicationNumber}/status`,
+        { status: "Accepted" },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      alert(response.data.message || "Application accepted successfully!");
+
+      // Refetch notifications to update state
+      await fetchNotifications();
+    } catch (error) {
+      console.error("Error accepting application:", error.message);
+      alert("Failed to accept application.");
+    }
+  };
+
   // Handle rejection with reason
   const handleRejection = async (applicationNumber, teacherId, reason) => {
-    if (!teacherId) {
-      console.error(
-        "Teacher ID is missing for application:",
-        applicationNumber
-      );
-      alert("Teacher ID is missing. Unable to process rejection.");
-      return;
-    }
-
-    if (!reason.trim()) {
-      alert("Rejection reason cannot be empty.");
+    if (!teacherId || !reason.trim()) {
+      alert("Teacher ID or rejection reason is missing.");
       return;
     }
 
@@ -55,10 +70,11 @@ const TeacherNotifications = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+
       alert(
         response.data.message || "Rejection reason submitted successfully!"
       );
-      fetchNotifications(); // Refresh notifications
+      await fetchNotifications();
       setEditingNotificationId(null);
     } catch (error) {
       console.error("Error rejecting application:", error.message);
@@ -66,7 +82,7 @@ const TeacherNotifications = () => {
     }
   };
 
-  // Handle input change for rejection reason
+  // Handle rejection reason change
   const handleRejectionReasonChange = (applicationNumber, reason) => {
     setRejectionReasons((prev) => ({
       ...prev,
@@ -74,45 +90,19 @@ const TeacherNotifications = () => {
     }));
   };
 
-  // Handle accept action
-  const handleAccept = async (applicationNumber) => {
-    try {
-      await updateNotification(applicationNumber, "Accepted");
-      alert("Notification status updated to Accepted.");
-      fetchNotifications(); // Refresh notifications list
-    } catch (error) {
-      console.error("Error accepting application:", error.message);
-      alert("Failed to accept application.");
-    }
-  };
-
-  // Update notification status
-  const updateNotification = async (applicationNumber, status, reason = "") => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await axios.put(
-        `/api/v1/teacher/notifications/${applicationNumber}/status`,
-        { status, reason },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      alert(response.data.message || "Notification updated successfully!");
-    } catch (error) {
-      console.error("Error updating notification:", error.message);
-      alert("Failed to update notification.");
-    }
-  };
-
   // Filter notifications based on the active tab
   const filteredNotifications = notifications.filter(
-    (notification) => notification.status === activeTab
+    (notification) =>
+      notification.status.toLowerCase() === activeTab.toLowerCase()
   );
 
+  // Handle tab change
+  const handleTabChange = (status) => {
+    setActiveTab(status);
+  };
+
   useEffect(() => {
-    fetchNotifications().catch((error) => {
-      console.error("Failed to fetch notifications:", error);
-    });
+    fetchNotifications();
   }, []);
 
   return (
@@ -124,7 +114,7 @@ const TeacherNotifications = () => {
           <button
             key={status}
             className={`tab-button ${activeTab === status ? "active" : ""}`}
-            onClick={() => setActiveTab(status)}
+            onClick={() => handleTabChange(status)}
           >
             {status}
           </button>
