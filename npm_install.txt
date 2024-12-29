@@ -1,0 +1,28 @@
+
+npm i
+npm audit 
+
+npm audit fix
+npm install cors
+
+
+npm install multer
+
+
+npm install axios antd react-redux react-spinners concurrently web-vitals --save-dev  react-router-dom --save react-scripts --save 
+
+npm i xpress-rate-limit winston
+
+npm install react-router-dom@latest
+npm install react-router-dom
+npm install @auth0/auth0-react cors
+npm install @tanstack/react-query
+
+
+npm install @reduxjs/toolkit react-redux
+npm i express morgan colors dotenv nodemon nodemon mongoose jsonwebtoken bcryptjs
+
+npm install styled-components
+
+npm install @coreui/react
+npm install react-select

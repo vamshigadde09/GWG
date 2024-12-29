@@ -1,0 +1,52 @@
+/* Ensure footer is always at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    margin-top: 1000px;
+}
+
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+
+/* Container for footer content */
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Styling for footer content headings */
+.footer-content h3 {
+    margin-bottom: 10px;
+}
+
+/* Styling for footer content text and lists */
+.footer-content p,
+.footer-content ul {
+    margin: 0;
+}
+
+.footer-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-content li {
+    margin: 5px 0;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}

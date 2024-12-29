@@ -1,0 +1,24 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px; /* Added padding to prevent overflow on smaller screens */
+}
+
+.register-form {
+  border: 1px solid gray;
+  padding: 40px; /* Increased padding for a larger form */
+  background-color: #AAB2C6;
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  max-width: 500px; /* Set a max-width to control the form's width */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Added a subtle shadow for better visual contrast */
+}

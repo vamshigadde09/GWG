@@ -1,0 +1,155 @@
+/* GrowWithGuru.css */
+
+/* Body styling */
+
+
+body {
+    background-color: #dae1e2; /* Light gray background */
+    font-family: Arial, sans-serif; /* Font family */
+}
+
+.body-box {
+    padding: 20px;
+    background-color: #f8f9fa; /* Slightly off-white for contrast */
+    margin: 20px;
+    border: 1px solid #ccc; /* Light border for definition */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Header styling */
+.header {
+    padding: 10px 0; /* Padding top and bottom */
+    background-color: #003366dc; /* Dark blue background */
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex; /* Flexbox layout */
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    list-style-type: none; /* Remove default list styling */
+}
+
+/* Navbar link styling */
+.nav-link {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Font size */
+    margin: 0 10px; /* Margin around links */
+    padding: 5px 10px; /* Padding inside links */
+}
+
+/* Hover effect for navbar links */
+.nav-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Button styling for navbar links */
+.nav-link.btn {
+    background-color: #dae1e2; /* Light gray background */
+    color: black; /* Text color */
+    padding: 5px 10px; /* Padding inside buttons */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid black; /* Black border */
+    margin-left: 20px; /* Additional left margin */
+}
+
+/* Hover effect for buttons */
+.nav-link.btn:hover {
+    background-color: white; /* White background on hover */
+}
+
+.body-box {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+  }
+
+/* Container styling */
+.growwithguru-container {
+    font-family: Arial, sans-serif;
+    margin: 0 auto; /* Centered margin */
+    max-width: auto; /* Maximum width */
+}
+
+/* Styling for various sections */
+.intro-section,
+.features-section,
+.testimonials-section,
+.faq-section{
+    padding: 20px; /* Padding inside sections */
+    margin: 20px auto; /* Centered margin */
+    background-color: white; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+/* Styling for headings */
+h1, h2 {
+    color: #003366; /* Dark blue headings */
+    font-size: 30px; /* Font size */
+}
+
+/* Styling for text */
+p,
+li,
+dt,
+dd,
+blockquote {
+    color: black; /* Black text */
+    font-size: 20px; /* Font size */
+}
+
+/* Styling for blockquotes */
+blockquote {
+    font-style: italic; /* Italic text */
+    margin: 10px 0; /* Margin top and bottom */
+}
+
+.teacher-profile-search-container {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .teachers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .teacher-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .teacher-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .teacher-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+  }
+  
