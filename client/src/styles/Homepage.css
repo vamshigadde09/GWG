@@ -1,0 +1,174 @@
+/* General Styles */
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Body Box */
+  .body-box {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Section Styling */
+  .section {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1000px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .intro-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1890ff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .intro-description {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  /* List Styling */
+  .why-list,
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .why-item,
+  .features-item {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .why-item::before,
+  .features-item::before {
+    content: "✔";
+    color: #1890ff;
+    margin-right: 10px;
+  }
+  
+  /* Testimonials Section */
+  .testimonials-section .testimonial {
+    font-size: 16px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    border-left: 4px solid #1890ff;
+    padding-left: 15px;
+  }
+  
+  /* FAQ Section */
+  .faq-question {
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .faq-answer {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .section {
+      padding: 15px;
+      margin: 30px;
+    }
+  
+    .section-title,
+    .intro-title {
+      font-size: 24px;
+    }
+  
+    .intro-description {
+      font-size: 18px;
+    }
+  
+    .why-item,
+    .features-item {
+      font-size: 18px;
+    }
+  
+    .faq-answer {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      padding: 10px;
+      margin: 20px;
+    }
+  
+    .section-title,
+    .intro-title {
+      font-size: 20px;
+    }
+  
+    .intro-description,
+    .why-item,
+    .features-item,
+    .faq-answer {
+      font-size: 14px;
+    }
+  
+    .testimonial {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section {
+      padding: 10px;
+      margin: 15px;
+    }
+  
+    .section-title,
+    .intro-title {
+      font-size: 18px;
+    }
+  
+    .intro-description {
+      font-size: 14px;
+    }
+  
+    .why-item,
+    .features-item {
+      font-size: 14px;
+    }
+  
+    .faq-answer {
+      font-size: 12px;
+    }
+  
+    .testimonial {
+      font-size: 12px;
+    }
+  }
+  

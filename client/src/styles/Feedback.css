@@ -1,0 +1,224 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f9fc;
+}
+
+.feedback-container {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Request List */
+.accepted-requests-list {
+  list-style: none;
+  padding: 0;
+}
+
+.request-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.request-details {
+  margin-bottom: 10px;
+}
+
+.request-details strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Attendance Buttons */
+.attendance-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.attendance-buttons button {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.attendance-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.attendance-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+}
+
+/* Feedback Form */
+.feedback-form {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.feedback-form h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.feedback-form label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Inputs and Textareas */
+.feedback-form input[type="number"],
+.feedback-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form input[type="number"]:focus,
+.feedback-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.feedback-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Submit Button */
+.feedback-form button {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-form button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.feedback-form button:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
+}
+
+/* Feedback Grid Layout */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.feedback-textarea label {
+  margin-top: 10px;
+}
+
+.feedback-textarea textarea {
+  min-height: 50px;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .feedback-container {
+    padding: 15px;
+  }
+
+  .feedback-form {
+    padding: 10px;
+  }
+
+  .feedback-form button {
+    width: 100%;
+  }
+}
+
+/* Button Overrides */
+button {
+  margin-top: 20px;
+  font-size: 14px;
+}
+/* Request Details Container */
+.request-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: linear-gradient(145deg, #ffffff, #f7f7f7);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border-left: 6px solid #007bff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Individual Detail Pair */
+.detail-pair {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 calc(50% - 20px); /* Two columns layout */
+  min-width: 200px; /* Minimum width to handle smaller screens */
+}
+
+/* Label Styling */
+.detail-pair strong {
+  font-weight: bold;
+  color: #0056b3;
+}
+
+/* Value Styling */
+.detail-pair span {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .detail-pair {
+    flex: 1 1 100%; /* Stack items in one column for smaller screens */
+  }
+}
