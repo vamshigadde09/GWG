@@ -50,10 +50,10 @@ const Login = () => {
         >
           <h3 className="text-center">Login Form</h3>
           <Form.Item label="Email" name="email">
-            <Input type="email" required />
+            <Input type="email" required autoComplete="username" />
           </Form.Item>
           <Form.Item label="Password" name="password">
-            <Input type="password" required />
+            <Input type="password" required autoComplete="current-password" />
           </Form.Item>
           <Link to="/register" className="custom-link">
             Not a user? Register here

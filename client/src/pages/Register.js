@@ -41,11 +41,13 @@ const Register = () => {
             <Input type="text" required />
           </Form.Item>
           <Form.Item label="Email" name="email">
-            <Input type="email" required />
+            <Input type="email" required autoComplete="username" />
           </Form.Item>
+
           <Form.Item label="Password" name="password">
-            <Input type="password" required />
+            <Input type="password" required autoComplete="new-password" />
           </Form.Item>
+
           <Form.Item label="Role" name="role" required>
             <Select>
               <Select.Option value="Teacher">Teacher</Select.Option>
