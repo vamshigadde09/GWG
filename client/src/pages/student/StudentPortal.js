@@ -12,11 +12,173 @@ const skillsOptions = [
   { value: "Machine Learning", label: "Machine Learning" },
   { value: "Data Science", label: "Data Science" },
   { value: "Deep Learning", label: "Deep Learning" },
-  { value: "Python", label: "Python" },
-  { value: "Java", label: "Java" },
-  { value: "JavaScript", label: "JavaScript" },
-  { value: "React", label: "React" },
-  { value: "Angular", label: "Angular" },
+  { value: "Python", label: "Python", group: "Programming Languages" },
+  { value: "Java", label: "Java", group: "Programming Languages" },
+  { value: "C", label: "C", group: "Programming Languages" },
+  { value: "C++", label: "C++", group: "Programming Languages" },
+  { value: "JavaScript", label: "JavaScript", group: "Programming Languages" },
+  { value: "TypeScript", label: "TypeScript", group: "Programming Languages" },
+  { value: "HTML", label: "HTML", group: "Frontend Development" },
+  { value: "CSS", label: "CSS", group: "Frontend Development" },
+  { value: "SCSS", label: "SCSS", group: "Frontend Development" },
+  {
+    value: "Tailwind CSS",
+    label: "Tailwind CSS",
+    group: "Frontend Development",
+  },
+  { value: "SQL", label: "SQL", group: "Databases" },
+  { value: "NoSQL", label: "NoSQL", group: "Databases" },
+  { value: "MongoDB", label: "MongoDB", group: "Databases" },
+  { value: "Firebase", label: "Firebase", group: "Databases" },
+  { value: "PostgreSQL", label: "PostgreSQL", group: "Databases" },
+  { value: "AngularJS", label: "AngularJS", group: "Frontend Frameworks" },
+  { value: "React.js", label: "React.js", group: "Frontend Frameworks" },
+  { value: "Next.js", label: "Next.js", group: "Frontend Frameworks" },
+  { value: "ShadCN", label: "ShadCN", group: "Frontend Frameworks" },
+  { value: "Spring Boot", label: "Spring Boot", group: "Backend Frameworks" },
+  { value: "Node.js", label: "Node.js", group: "Backend Frameworks" },
+  { value: "Express.js", label: "Express.js", group: "Backend Frameworks" },
+  { value: "Vite.js", label: "Vite.js", group: "Frontend Development" },
+  { value: "Docker", label: "Docker", group: "DevOps" },
+  { value: "Docker Compose", label: "Docker Compose", group: "DevOps" },
+  { value: "AJAX", label: "AJAX", group: "API Development" },
+  {
+    value: "REST API Development",
+    label: "REST API Development",
+    group: "API Development",
+  },
+  { value: "Flutter", label: "Flutter", group: "Mobile Development" },
+  { value: "Redux", label: "Redux", group: "State Management" },
+  { value: "TensorFlow", label: "TensorFlow", group: "AI Frameworks" },
+  { value: "PyTorch", label: "PyTorch", group: "AI Frameworks" },
+  { value: "Keras", label: "Keras", group: "AI Frameworks" },
+  { value: "Scikit-learn", label: "Scikit-learn", group: "AI Frameworks" },
+  {
+    value: "OCR",
+    label: "OCR (Optical Character Recognition)",
+    group: "Computer Vision",
+  },
+  { value: "AWS", label: "AWS", group: "Cloud Computing" },
+  {
+    value: "GCP",
+    label: "Google Cloud Platform (GCP)",
+    group: "Cloud Computing",
+  },
+  { value: "Azure", label: "Azure Web Services", group: "Cloud Computing" },
+  { value: "Heroku", label: "Heroku", group: "Cloud Computing" },
+  { value: "Git", label: "Git", group: "Tools" },
+  { value: "GitHub", label: "GitHub", group: "Tools" },
+  { value: "IntelliJ IDEA", label: "IntelliJ IDEA", group: "Tools" },
+  { value: "VS Code", label: "VS Code", group: "Tools" },
+  { value: "Matplotlib", label: "Matplotlib", group: "Visualization Tools" },
+  { value: "Seaborn", label: "Seaborn", group: "Visualization Tools" },
+  { value: "Chart.js", label: "Chart.js", group: "Visualization Tools" },
+  { value: "IoT Systems", label: "IoT Systems", group: "Specialized Domains" },
+  {
+    value: "Supply Chain Management",
+    label: "Supply Chain Management",
+    group: "Specialized Domains",
+  },
+  {
+    value: "Financial Machine Learning",
+    label: "Financial Machine Learning",
+    group: "Specialized Domains",
+  },
+  {
+    value: "Women's Safety",
+    label: "Women's Safety",
+    group: "Specialized Domains",
+  },
+  {
+    value: "Carbon Footprint Tracking",
+    label: "Carbon Footprint Tracking",
+    group: "Specialized Domains",
+  },
+  {
+    value: "Web3 Development",
+    label: "Web3 Development",
+    group: "Other Skills",
+  },
+  {
+    value: "Event Registration System Design",
+    label: "Event Registration System Design",
+    group: "Other Skills",
+  },
+  {
+    value: "Frontend UI/UX Design Principles",
+    label: "Frontend UI/UX Design Principles",
+    group: "Other Skills",
+  },
+];
+const groupedOptions = [
+  {
+    label: "Programming Languages",
+    options: skillsOptions.filter(
+      (opt) => opt.group === "Programming Languages"
+    ),
+  },
+  {
+    label: "Frontend Development",
+    options: skillsOptions.filter(
+      (opt) => opt.group === "Frontend Development"
+    ),
+  },
+  {
+    label: "Frontend Frameworks",
+    options: skillsOptions.filter((opt) => opt.group === "Frontend Frameworks"),
+  },
+  {
+    label: "Backend Frameworks",
+    options: skillsOptions.filter((opt) => opt.group === "Backend Frameworks"),
+  },
+  {
+    label: "Databases",
+    options: skillsOptions.filter((opt) => opt.group === "Databases"),
+  },
+  {
+    label: "DevOps",
+    options: skillsOptions.filter((opt) => opt.group === "DevOps"),
+  },
+  {
+    label: "API Development",
+    options: skillsOptions.filter((opt) => opt.group === "API Development"),
+  },
+  {
+    label: "Mobile Development",
+    options: skillsOptions.filter((opt) => opt.group === "Mobile Development"),
+  },
+  {
+    label: "State Management",
+    options: skillsOptions.filter((opt) => opt.group === "State Management"),
+  },
+  {
+    label: "AI Frameworks",
+    options: skillsOptions.filter((opt) => opt.group === "AI Frameworks"),
+  },
+  {
+    label: "Computer Vision",
+    options: skillsOptions.filter((opt) => opt.group === "Computer Vision"),
+  },
+  {
+    label: "Cloud Computing",
+    options: skillsOptions.filter((opt) => opt.group === "Cloud Computing"),
+  },
+  {
+    label: "Tools",
+    options: skillsOptions.filter((opt) => opt.group === "Tools"),
+  },
+  {
+    label: "Visualization Tools",
+    options: skillsOptions.filter((opt) => opt.group === "Visualization Tools"),
+  },
+  {
+    label: "Specialized Domains",
+    options: skillsOptions.filter((opt) => opt.group === "Specialized Domains"),
+  },
+  {
+    label: "Other Skills",
+    options: skillsOptions.filter((opt) => opt.group === "Other Skills"),
+  },
 ];
 
 const StudentPortal = () => {
@@ -146,7 +308,7 @@ const StudentPortal = () => {
           ) : (
             <>
               <Autocomplete
-                options={skillsOptions}
+                options={groupedOptions}
                 getOptionLabel={(option) => option.label}
                 value={selectedSkill}
                 onChange={(event, newValue) => setSelectedSkill(newValue)}
