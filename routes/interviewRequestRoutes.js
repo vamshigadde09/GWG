@@ -8,6 +8,8 @@ const {
   acceptInterviewRequest,
   submitFeedback,
   updateAttendance,
+  getFeedbackForStudent,
+  deleteStudentInterviewRequest,
 } = require("../controllers/interviewRequestCtrl");
 const authMiddleware = require("../middlewares/authMiddleware");
 
@@ -21,5 +23,7 @@ router.post("/accept", authMiddleware, acceptInterviewRequest);
 router.put("/attendance", authMiddleware, updateAttendance);
 router.post("/submitFeedback", authMiddleware, submitFeedback);
 router.get("/acceptedRequests", authMiddleware, getAcceptedRequests);
+router.get("/studentFeedback", authMiddleware, getFeedbackForStudent);
+router.delete("/studentRequests/:applicationId", deleteStudentInterviewRequest);
 
 module.exports = router;

@@ -8,6 +8,12 @@ const feedbackSchema = new mongoose.Schema(
       ref: "InterviewRequest",
       required: true,
     },
+    studentId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
     // Performance Ratings (1-5 scale)
     communicationSkills: {
       type: Number,

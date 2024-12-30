@@ -24,6 +24,7 @@ import TProfilePage from "./pages/teacher/TProfilePage";
 import TeacherDetails from "./pages/teacher/TeacherDetails";
 import TeacherAvailability from "./pages/teacher/TeacherAvailability";
 import Feedback from "./pages/teacher/feedback";
+import FeedbackView from "./pages/student/FeedbackView";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -67,6 +68,7 @@ function App() {
             <Route path="/ApplyForInterview" element={<ApplyForInterview />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="/my-applications" element={<MyApplications />} />
+            <Route path="/FeedbackView" element={<FeedbackView />} />
           </Route>
 
           {/* Protected routes for Teachers */}

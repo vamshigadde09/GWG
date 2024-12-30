@@ -53,7 +53,7 @@ const StudentHeader = () => {
           My Applications
         </a>
         <a
-          href="/feedbackview"
+          href="/FeedbackView"
           className="nav-link"
           onClick={() => setIsMenuOpen(false)}
         >

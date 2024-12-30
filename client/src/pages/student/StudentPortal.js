@@ -244,7 +244,7 @@ const StudentPortal = () => {
         <section className="intro-section">
           <h1>Welcome to GROW WITH GURU - Your Path to Interview Success</h1>
           <p>
-            We’re excited to have you here! [Platform Name] is designed to
+            We’re excited to have you here! GROW WITH GURU is designed to
             support you in preparing for job interviews, providing you with the
             tools and resources you need to excel. Our platform offers
             comprehensive mock interviews that simulate real interview
@@ -274,8 +274,8 @@ const StudentPortal = () => {
           <h2>Testimonials Section: Hear from our Successful Users:</h2>
           <blockquote>
             <p>
-              “The mock interviews on [Platform Name] were a game-changer for
-              me. The feedback was incredibly detailed and helped me improve
+              “The mock interviews on GROW WITH GURU were a game-changer for me.
+              The feedback was incredibly detailed and helped me improve
               significantly. I felt so much more confident during my actual
               interviews.”
             </p>

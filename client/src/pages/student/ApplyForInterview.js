@@ -181,11 +181,21 @@ const ApplyForInterview = () => {
       return;
     }
 
-    // Check if no teacher is selected
+    // If no teacher is selected, ask the user
     if (selectedTeachers.length === 0) {
-      alert("You have not selected any teacher. Please select a teacher.");
-      return;
+      const userChoice = window.confirm(
+        "You have not selected any teacher. Do you want to proceed without selecting a teacher?"
+      );
+
+      if (!userChoice) {
+        // User chooses to select a teacher
+        return;
+      } else {
+        // User chooses to proceed without selecting a teacher
+        formData.noteacher = true;
+      }
     }
+
     try {
       const response = await axios.post(
         "http://localhost:8080/api/v1/interview/create",

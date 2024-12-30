@@ -1,6 +1,6 @@
 const InterviewRequest = require("../models/interviewRequestModel");
 const TeacherProfile = require("../models/teacherporfile");
-
+const Feedback = require("../models/feedbackModel");
 const generateUniqueApplicationNumber = async () => {
   let isUnique = false;
   let applicationNumber;
@@ -27,9 +27,10 @@ const createInterviewRequest = async (req, res) => {
       teacher = [],
       driveLink = "",
       resourcesLink = "",
+      noteacher,
     } = req.body;
 
-    if (!name || !email || !topic || !date || !startTime || !teacher) {
+    if (!name || !email || !topic || !date || !startTime) {
       return res.status(400).send({
         message: "Required fields are missing.",
         success: false,
@@ -59,30 +60,22 @@ const createInterviewRequest = async (req, res) => {
 
     await newRequest.save();
 
-    if (teacher.length === 0) {
-      return res.status(400).send({
-        message: "No teacher selected. Please select a teacher.",
-        success: false,
+    if (!noteacher) {
+      await notifySelectedTeachers(teacher, {
+        name,
+        email,
+        topic,
+        skills,
+        interviewType,
+        experienceLevel,
+        date,
+        startTime,
+        interviewMode,
+        driveLink,
+        resourcesLink,
+        applicationNumber,
       });
     }
-
-    const noteacher = teacher.length === 0;
-
-    await notifySelectedTeachers(teacher, {
-      name,
-      email,
-      topic,
-      skills,
-      interviewType,
-      experienceLevel,
-      date,
-      startTime,
-      interviewMode,
-      driveLink,
-      resourcesLink,
-      applicationNumber,
-    });
-
     res.status(201).send({
       message: "Interview request created successfully.",
       success: true,
@@ -228,7 +221,7 @@ const acceptInterviewRequest = async (req, res) => {
 const getAcceptedRequests = async (req, res) => {
   try {
     const acceptedRequests = await InterviewRequest.find({
-      status: "Accepted",
+      status: { $in: ["Accepted"] },
     });
     res.status(200).json({ success: true, data: acceptedRequests });
   } catch (error) {
@@ -257,25 +250,15 @@ const updateAttendance = async (req, res) => {
 const submitFeedback = async (req, res) => {
   const { applicationNumber, feedback } = req.body;
 
-  console.log("Received submitFeedback request:", {
-    applicationNumber,
-    feedback,
-  });
-
   try {
     // Step 1: Find the interview request
-    console.log(
-      "Finding interview request for applicationNumber:",
-      applicationNumber
-    );
+
     const interview = await InterviewRequest.findOne({ applicationNumber });
 
     if (!interview) {
       console.log("Interview request not found.");
       return res.status(404).json({ message: "Interview request not found." });
     }
-
-    console.log("Interview request found:", interview);
 
     // Step 2: Validate feedback fields
     const {
@@ -296,8 +279,6 @@ const submitFeedback = async (req, res) => {
       recommendation,
     } = feedback;
 
-    console.log("Validating feedback fields...");
-
     if (
       !interviewRequestId ||
       !studentId ||
@@ -311,14 +292,12 @@ const submitFeedback = async (req, res) => {
       !strengths ||
       !areasForImprovement
     ) {
-      console.log("Missing required feedback fields.", feedback);
       return res
         .status(400)
         .json({ message: "Missing required feedback fields." });
     }
 
     // Step 3: Check attendance status
-    console.log("Checking attendance status...");
     if (interview.attendance !== "Present") {
       console.log("Attendance is not marked as Present.", {
         attendance: interview.attendance,
@@ -329,31 +308,26 @@ const submitFeedback = async (req, res) => {
       });
     }
 
-    // Step 4: Save feedback to the interview request
-    console.log("Saving feedback to interview request...");
-    interview.feedback = {
-      interviewRequestId,
-      studentId,
-      teacherId,
-      communicationSkills,
-      technicalKnowledge,
-      problemSolvingAbility,
-      confidenceAndBodyLanguage,
-      timeManagement,
-      overallPerformance,
-      strengths,
-      areasForImprovement,
-      detailedFeedback,
-      actionableSuggestions,
-      additionalComments,
-      recommendation,
-    };
+    // Step 4: Save feedback in the Feedback model
+    const newFeedback = new Feedback({
+      ...feedback,
+      studentId: interview.studentId,
+      interviewRequestId: interview._id,
+    });
+    await newFeedback.save(``);
+
+    // Step 5: Update interview request with feedback details
+    interview.feedbackId = newFeedback._id;
+    interview.isFeedbackSubmitted = true;
+    interview.status = "Completed";
+    interview.teacher.forEach((teacher) => {
+      if (teacher.status === "Accepted") {
+        teacher.status = "Completed";
+      }
+    });
     await interview.save();
 
-    console.log("Feedback saved successfully.");
-
-    // Step 5: Notify teacher and/or student (Optional, extendable feature)
-    console.log("Notifying teacher with ID:", teacherId);
+    // Step 6: Notify teacher
     const teacher = await TeacherProfile.findById(teacherId);
     if (teacher) {
       teacher.notifications.push({
@@ -366,16 +340,50 @@ const submitFeedback = async (req, res) => {
         },
       });
       await teacher.save();
-      console.log("Teacher notified successfully.");
     }
 
     res.status(200).json({
       message: "Feedback submitted successfully.",
-      data: interview,
+      data: { interview, feedbackId: newFeedback._id, status: "Completed" },
     });
   } catch (error) {
     console.error("Error in submitFeedback:", error.message);
     res.status(500).json({ message: "Server error: " + error.message });
+  }
+};
+
+const getFeedbackForStudent = async (req, res) => {
+  try {
+    const studentId = req.user.id;
+
+    const feedbacks = await Feedback.find({ studentId })
+      .populate("interviewRequestId", "applicationNumber topic date")
+      .exec();
+
+    res.status(200).json({
+      message: "Feedback fetched successfully",
+      success: true,
+      data: feedbacks,
+    });
+  } catch (error) {
+    console.error("Error fetching feedback:", error.message);
+    res.status(500).json({ message: "Server error: " + error.message });
+  }
+};
+
+const deleteStudentInterviewRequest = async (req, res) => {
+  const { applicationId } = req.params;
+
+  try {
+    const deletedRequest = await InterviewRequest.findByIdAndDelete(
+      applicationId
+    );
+    if (!deletedRequest) {
+      return res.status(404).json({ message: "Application not found." });
+    }
+    res.status(200).json({ message: "Application deleted successfully." });
+  } catch (error) {
+    res.status(500).json({ message: `Server error: ${error.message}` });
   }
 };
 
@@ -388,4 +396,6 @@ module.exports = {
   acceptInterviewRequest,
   submitFeedback,
   updateAttendance,
+  getFeedbackForStudent,
+  deleteStudentInterviewRequest,
 };

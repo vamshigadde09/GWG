@@ -69,7 +69,8 @@ const interviewRequestSchema = new mongoose.Schema(
     },
     noteacher: { type: Boolean, default: false },
     finalfeedback: { type: Boolean, default: false },
-
+    isFeedbackSubmitted: { type: Boolean, default: false },
+    feedbackId: { type: String, default: null },
     applicationNumber: { type: Number, unique: true, required: true },
   },
 

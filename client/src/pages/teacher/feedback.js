@@ -44,7 +44,10 @@ const Feedback = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      setAcceptedRequests(response.data.data);
+      const filteredRequests = response.data.data.filter(
+        (request) => request.status !== "Completed"
+      );
+      setAcceptedRequests(filteredRequests);
     } catch (error) {
       console.error("Error fetching accepted requests:", error.message);
     }
@@ -87,8 +90,6 @@ const Feedback = () => {
         studentId,
         teacherId,
       };
-
-      console.log("Preparing feedback data for submission:", feedbackPayload);
 
       const token = localStorage.getItem("token");
       await axios.post(

@@ -116,7 +116,8 @@ const TeacherNotifications = () => {
 
   // Filter notifications based on the active tab
   const filteredNotifications = notifications.filter(
-    (notification) => notification.status === activeTab
+    (notification) =>
+      notification.status !== "Completed" && notification.status === activeTab
   );
 
   useEffect(() => {

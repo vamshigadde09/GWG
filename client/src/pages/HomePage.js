@@ -99,7 +99,7 @@ const HomePage = () => {
             Testimonials Section: Hear from Our Successful Users:
           </h2>
           <blockquote className="testimonial">
-            "The mock interviews on [Platform Name] were a game-changer for me.
+            "The mock interviews on GROW WITH GURU were a game-changer for me.
             The feedback was incredibly detailed and helped me improve
             significantly. I felt so much more confident during my actual
             interviews." - John Doe, Computer Science Major
