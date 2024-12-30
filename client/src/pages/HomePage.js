@@ -9,14 +9,18 @@ const HomePage = () => {
   const getUserData = async () => {
     try {
       const token = localStorage.getItem("token"); // Get token from localStorage
-      if (!token) throw new Error("Token not found");
+      if (!token) {
+        console.log("No token found. User is not logged in.");
+        return; // Exit the function if there's no token
+      }
 
+      // Make the API call if token exists
       await axios.post(
         "/api/v1/user/getUserData",
         {},
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Correctly reference the token here
+            Authorization: `Bearer ${token}`, // Pass the token in the headers
           },
         }
       );
@@ -24,6 +28,7 @@ const HomePage = () => {
       console.error("Error fetching user data:", error.message);
       if (error.response?.status === 401) {
         localStorage.removeItem("token");
+        window.location.href = "/login"; // Redirect to login page
       }
     }
   };
