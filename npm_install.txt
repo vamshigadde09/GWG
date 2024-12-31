@@ -28,3 +28,4 @@ npm install @coreui/react
 npm install react-select
 npm install socket.io
 npm install socket.io-client
+npm install passport-google-oauth20 passport

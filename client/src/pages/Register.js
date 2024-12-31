@@ -16,7 +16,7 @@ const Register = () => {
       const res = await axios.post("/api/v1/user/register", values);
       dispatch(hideLoading());
       if (res.data.success) {
-        message.success("Register Successfully!");
+        message.success("Registered Successfully!");
         navigate("/login");
       } else {
         message.error(res.data.message);
@@ -41,13 +41,11 @@ const Register = () => {
             <Input type="text" required />
           </Form.Item>
           <Form.Item label="Email" name="email">
-            <Input type="email" required autoComplete="username" />
+            <Input type="email" required />
           </Form.Item>
-
           <Form.Item label="Password" name="password">
-            <Input type="password" required autoComplete="new-password" />
+            <Input type="password" required />
           </Form.Item>
-
           <Form.Item label="Role" name="role" required>
             <Select>
               <Select.Option value="Teacher">Teacher</Select.Option>
@@ -55,7 +53,7 @@ const Register = () => {
             </Select>
           </Form.Item>
           <Link to="/login" className="custom-link">
-            Already user? Login here
+            Already a user? Login here
           </Link>
           <button className="custom-btn" type="submit">
             Register
@@ -65,5 +63,4 @@ const Register = () => {
     </div>
   );
 };
-
 export default Register;

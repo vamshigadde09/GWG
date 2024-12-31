@@ -41,13 +41,13 @@ const HomePage = () => {
             Welcome to GROW WITH GURU - Your Path to Interview Success
           </h1>
           <p className="intro-description">
-            At GROW WITH GURU , we understand the challenges students face
-            during campus placements. Our platform is designed to provide
-            comprehensive mock interviews that simulate real job interview
-            experiences, helping you build confidence and hone your skills. With
-            the guidance of experienced teachers and professionals, you'll
-            receive invaluable feedback and insights to enhance your interview
-            performance and increase your chances of landing your dream job.
+            At GROW WITH GURU, we understand the challenges students face during
+            campus placements. Our platform is designed to provide comprehensive
+            mock interviews that simulate real job interview experiences,
+            helping you build confidence and hone your skills. With the guidance
+            of experienced teachers and professionals, you'll receive invaluable
+            feedback and insights to enhance your interview performance and
+            increase your chances of landing your dream job.
           </p>
         </section>
 
@@ -100,8 +100,7 @@ const HomePage = () => {
           </h2>
           <blockquote className="testimonial">
             "The mock interviews on [Platform Name] were a game-changer for me.
-            The feedback was incredibly detailed and helped me improve
-            significantly. I felt so much more confident during my actual
+            The feedback made me feel so much more confident during my actual
             interviews." - John Doe, Computer Science Major
           </blockquote>
           <blockquote className="testimonial">
